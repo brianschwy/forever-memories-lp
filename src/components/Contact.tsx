@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useState } from "react";
 
 export const Contact = () => {
-  const [contactMethod, setContactMethod] = useState("phone");
-
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-4">
@@ -44,18 +41,6 @@ export const Contact = () => {
           <div className="space-y-2">
             <Label htmlFor="photos">Estimated Number of Photos</Label>
             <Input id="photos" type="number" placeholder="100" />
-          </div>
-
-          <div className="space-y-2">
-            <Label>Preferred Contact Method</Label>
-            <RadioGroup defaultValue="phone" onValueChange={setContactMethod}>
-              <div className="flex space-x-4">
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="phone" id="r-phone" />
-                  <Label htmlFor="r-phone">Phone</Label>
-                </div>
-              </div>
-            </RadioGroup>
           </div>
 
           <Button className="w-full bg-navy hover:bg-navy-light text-white">
