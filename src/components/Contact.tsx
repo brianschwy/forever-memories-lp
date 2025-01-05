@@ -32,6 +32,11 @@ export const Contact = () => {
           </div>
 
           <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" type="email" placeholder="your.email@example.com" />
+          </div>
+
+          <div className="space-y-2">
             <Label htmlFor="phone">Phone</Label>
             <Input id="phone" type="tel" placeholder="(123) 456-7890" />
           </div>
