@@ -26,12 +26,12 @@ export const Hero = () => {
         </Button>
       </div>
 
-      <div className="w-full md:w-1/2 h-[60vh] md:h-screen relative">
-        <div className="absolute inset-0">
+      <div className="w-full md:w-1/2 h-[50vh] md:h-[80vh] relative">
+        <div className="absolute inset-0 flex items-center justify-center p-8">
           <img 
             src="/lovable-uploads/4bc29af1-b5d6-4426-a179-4d41b71e6f46.png" 
             alt="Family looking at digital photos together" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain rounded-lg shadow-xl"
           />
         </div>
       </div>
