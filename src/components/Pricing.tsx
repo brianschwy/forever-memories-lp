@@ -2,47 +2,41 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Pricing = () => {
+  const commonFeatures = [
+    "High-resolution scans",
+    "Professional digital organization",
+    "Cloud storage access",
+    "USB and CD delivery of files",
+  ];
+
   const plans = [
     {
       name: "Starter Collection",
       photos: 100,
       pricePerPhoto: 0.60,
       description: "Perfect for small collections",
-      features: [
-        "High-resolution scans",
-        "Basic digital organization",
-        "Cloud storage access",
-        "USB delivery option",
-      ],
+      features: commonFeatures,
     },
     {
       name: "Family Collection",
       photos: 500,
       pricePerPhoto: 0.55,
       description: "Most popular",
-      features: [
-        "High-resolution scans",
-        "Professional organization",
-        "Extended cloud storage",
-        "USB delivery included",
-        "Priority processing",
-      ],
+      features: commonFeatures,
     },
     {
       name: "Heritage Collection",
       photos: "1000+",
       pricePerPhoto: 0.50,
       description: "Best value for larger collections",
-      features: [
-        "High-resolution scans",
-        "Premium organization",
-        "Unlimited cloud storage",
-        "Multiple USB copies",
-        "Priority processing",
-        "Custom album creation",
-      ],
+      features: commonFeatures,
     },
   ];
+
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    contactElement?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section id="pricing" className="py-20">
@@ -63,7 +57,7 @@ export const Pricing = () => {
               <p className="text-gray-600 mb-6">{plan.description}</p>
               
               <div className="mb-8">
-                <span className="text-4xl font-bold text-navy">${plan.pricePerPhoto}</span>
+                <span className="text-4xl font-bold text-navy">${plan.pricePerPhoto.toFixed(2)}</span>
                 <span className="text-gray-600"> per photo</span>
                 <p className="text-sm text-gray-500 mt-2">Up to {plan.photos} photos</p>
               </div>
@@ -77,7 +71,10 @@ export const Pricing = () => {
                 ))}
               </ul>
 
-              <Button className="w-full bg-navy hover:bg-navy-light text-white">
+              <Button 
+                className="w-full bg-navy hover:bg-navy-light text-white"
+                onClick={scrollToContact}
+              >
                 Get Started
               </Button>
             </div>

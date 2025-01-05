@@ -5,12 +5,12 @@ export const Process = () => {
     {
       icon: Calendar,
       title: "Book a Free Consultation",
-      description: "Schedule a time that works for you",
+      description: "Schedule a quick call where we access your needs",
     },
     {
       icon: Home,
-      title: "We Visit Your Home",
-      description: "Our professionals come to you",
+      title: "We Come to You",
+      description: "Your photos never have to leave your home!",
     },
     {
       icon: Camera,

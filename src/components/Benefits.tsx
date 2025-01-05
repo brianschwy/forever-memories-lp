@@ -5,17 +5,17 @@ export const Benefits = () => {
     {
       icon: Home,
       title: "In-Home Service",
-      description: "Your precious photos stay safely in your possession",
+      description: "Your photo albums and pictures never leave your home!",
     },
     {
       icon: Camera,
       title: "Professional Equipment",
-      description: "High-quality scans preserve every detail",
+      description: "High-quality scans safely handled by our team of experts",
     },
     {
       icon: Shield,
       title: "Secure & Simple",
-      description: "Digital files delivered within 60 days through secure cloud storage or USB",
+      description: "Receive your digital files via USB, CD, or cloud storage",
     },
   ];
 

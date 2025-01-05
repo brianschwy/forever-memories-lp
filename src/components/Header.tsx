@@ -14,6 +14,11 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    contactElement?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md py-2" : "py-4"}`}>
       <div className="container mx-auto px-4">
@@ -22,11 +27,13 @@ export const Header = () => {
           
           <div className="hidden md:flex items-center space-x-8">
             <nav className="flex items-center space-x-6">
-              <a href="#services" className="text-navy hover:text-gold transition-colors">Services</a>
               <a href="#process" className="text-navy hover:text-gold transition-colors">Process</a>
               <a href="#pricing" className="text-navy hover:text-gold transition-colors">Pricing</a>
             </nav>
-            <Button className="bg-navy hover:bg-navy-light text-white">
+            <Button 
+              className="bg-navy hover:bg-navy-light text-white"
+              onClick={scrollToContact}
+            >
               Book Consultation
             </Button>
           </div>
@@ -39,14 +46,15 @@ export const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4">
             <nav className="flex flex-col space-y-4 px-4">
-              <a href="#services" className="text-navy hover:text-gold transition-colors">Services</a>
               <a href="#process" className="text-navy hover:text-gold transition-colors">Process</a>
               <a href="#pricing" className="text-navy hover:text-gold transition-colors">Pricing</a>
-              <Button className="bg-navy hover:bg-navy-light text-white w-full">
+              <Button 
+                className="bg-navy hover:bg-navy-light text-white w-full"
+                onClick={scrollToContact}
+              >
                 Book Consultation
               </Button>
             </nav>
