@@ -7,9 +7,7 @@ export const Hero = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center relative pt-20">
-      <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-transparent z-10"></div>
-      
+    <div className="min-h-screen flex flex-col md:flex-row items-center">
       <div className="w-full md:w-1/2 p-8 md:p-16 z-20">
         <h1 className="font-playfair text-4xl md:text-6xl font-bold text-navy mb-6 animate-fadeIn">
           Turning Physical Photos Into Forever Memories
@@ -31,7 +29,7 @@ export const Hero = () => {
           <img 
             src="/lovable-uploads/4bc29af1-b5d6-4426-a179-4d41b71e6f46.png" 
             alt="Family looking at digital photos together" 
-            className="w-full h-full object-contain rounded-lg shadow-xl"
+            className="w-full h-full object-contain rounded-lg"
           />
         </div>
       </div>
