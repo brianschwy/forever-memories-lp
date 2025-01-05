@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
-  const scrollToConsultation = () => {
-    const element = document.getElementById('consultation');
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -16,7 +16,7 @@ export const Hero = () => {
           Professional photo digitization service that preserves your precious memories without ever leaving your home.
         </p>
         <Button 
-          onClick={scrollToConsultation}
+          onClick={scrollToContact}
           className="bg-gold hover:bg-gold-light text-white text-lg px-8 py-6 animate-fadeIn" 
           style={{ animationDelay: "0.4s" }}
         >
