@@ -43,9 +43,6 @@ export const Process = () => {
               <p className="text-gray-300">
                 {step.description}
               </p>
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute right-0 top-1/2 w-1/4 h-px bg-gold-light"></div>
-              )}
             </div>
           ))}
         </div>
