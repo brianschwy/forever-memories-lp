@@ -17,9 +17,6 @@ export const Contact = () => {
           <p className="text-gray-600 mt-4">
             Proudly serving the Greater Los Angeles area.
           </p>
-          <p className="text-gray-600 mt-4">
-            Call us: (860) 331-9214
-          </p>
         </div>
 
         <form className="max-w-xl mx-auto space-y-6">
