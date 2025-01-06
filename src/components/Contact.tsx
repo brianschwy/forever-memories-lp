@@ -39,22 +39,19 @@ export const Contact = () => {
 
       if (dbError) throw dbError;
 
-      // Send notification
-      const notifyRes = await fetch('/functions/v1/notify-form-submission', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      // Send notification using Supabase Edge Function
+      const { error: notifyError } = await supabase.functions.invoke('notify-form-submission', {
+        body: {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           photos_count: parseInt(formData.photos_count),
-        }),
+        },
       });
 
-      if (!notifyRes.ok) {
-        console.error('Notification failed:', await notifyRes.text());
+      if (notifyError) {
+        console.error('Notification failed:', notifyError);
+        throw notifyError;
       }
 
       toast({
