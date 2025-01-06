@@ -25,7 +25,8 @@ export const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const { error } = await supabase
+      // Save to database
+      const { error: dbError } = await supabase
         .from('contact_submissions')
         .insert([
           {
@@ -36,7 +37,25 @@ export const Contact = () => {
           }
         ]);
 
-      if (error) throw error;
+      if (dbError) throw dbError;
+
+      // Send notification
+      const notifyRes = await fetch('/functions/v1/notify-form-submission', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          photos_count: parseInt(formData.photos_count),
+        }),
+      });
+
+      if (!notifyRes.ok) {
+        console.error('Notification failed:', await notifyRes.text());
+      }
 
       toast({
         title: "Success!",
