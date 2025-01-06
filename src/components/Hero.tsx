@@ -8,7 +8,7 @@ export const Hero = () => {
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center">
-      <div className="w-full md:w-1/2 p-8 md:p-16 z-20">
+      <div className="w-full md:w-1/2 p-8 md:p-16 z-20 mt-20 md:mt-0">
         <h1 className="font-playfair text-4xl md:text-6xl font-bold text-navy mb-6 animate-fadeIn">
           Turning Physical Photos Into Forever Memories
         </h1>
