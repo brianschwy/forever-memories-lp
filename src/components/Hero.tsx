@@ -10,17 +10,18 @@ export const Hero = () => {
     <div className="min-h-screen flex flex-col md:flex-row items-center">
       <div className="w-full md:w-1/2 p-8 md:p-16 z-20 mt-20 md:mt-0">
         <h1 className="font-playfair text-4xl md:text-6xl font-bold text-navy mb-6 animate-fadeIn">
-          Turning Physical Photos Into Forever Memories
+          We Digitize Your Family Photos Digital,<br />
+          You Don't Lift a Finger
         </h1>
         <p className="text-lg md:text-xl text-gray-700 mb-8 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-          Professional photo digitization service that preserves your precious memories without ever leaving your home.
+          Los Angeles' premium photo digitization service. We offer in-home digitization or pick up your photos and handle everything at our secure Santa Monica facility.
         </p>
         <Button 
           onClick={scrollToContact}
           className="bg-gold hover:bg-gold-light text-white text-lg px-8 py-6 animate-fadeIn" 
           style={{ animationDelay: "0.4s" }}
         >
-          Book Your Free Consultation
+          Protect Your Memories - Book Now
         </Button>
       </div>
 
