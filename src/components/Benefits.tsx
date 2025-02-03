@@ -36,7 +36,7 @@ export const Benefits = () => {
       label: "Timeline",
       name: "Timeline",
       diy: "Days or weeks of personal time",
-      forever: "✓ 1-3 days, locally managed",
+      forever: "✓ 1-3 days",
       competitors: "3-8 weeks",
     },
     {
@@ -67,7 +67,6 @@ export const Benefits = () => {
         </h2>
         
         <div className="relative">
-          {/* Table Container with Horizontal Scroll */}
           <div 
             ref={scrollContainerRef}
             className="overflow-x-auto pb-4 -mx-4 px-4"
@@ -79,11 +78,11 @@ export const Benefits = () => {
                   <TableHeader>
                     <TableRow className="hover:bg-transparent">
                       <TableHead className="w-[80px] text-center"></TableHead>
-                      <TableHead className="text-navy font-semibold text-center">Do It Yourself</TableHead>
-                      <TableHead className="text-navy font-semibold border-x-4 border-t-4 border-navy bg-[#DFF2F9] text-center">
+                      <TableHead className="text-navy font-semibold text-center w-[250px]">Do It Yourself</TableHead>
+                      <TableHead className="text-navy font-semibold border-x-4 border-t-4 border-navy bg-[#DFF2F9] text-center w-[300px]">
                         Forever Photos
                       </TableHead>
-                      <TableHead className="text-navy font-semibold text-center">Our Competitors</TableHead>
+                      <TableHead className="text-navy font-semibold text-center w-[250px]">Our Competitors</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -98,11 +97,11 @@ export const Benefits = () => {
                             <span className="text-xs text-gray-600">{feature.label}</span>
                           </div>
                         </TableCell>
-                        <TableCell className="min-w-[200px]">{feature.diy}</TableCell>
-                        <TableCell className={`border-x-4 border-navy bg-[#DFF2F9] ${index === features.length - 1 ? 'border-b-4' : ''}`}>
+                        <TableCell className="min-w-[250px] text-center">{feature.diy}</TableCell>
+                        <TableCell className={`border-x-4 border-navy bg-[#DFF2F9] min-w-[300px] text-center ${index === features.length - 1 ? 'border-b-4' : ''}`}>
                           <span className="text-navy font-bold">{feature.forever}</span>
                         </TableCell>
-                        <TableCell className="min-w-[200px]">{feature.competitors}</TableCell>
+                        <TableCell className="min-w-[250px] text-center">{feature.competitors}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
