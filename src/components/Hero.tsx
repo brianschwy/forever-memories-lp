@@ -14,7 +14,7 @@ export const Hero = () => {
           You Don't Lift a Finger
         </h1>
         <p className="text-lg md:text-xl text-gray-700 mb-8 animate-fadeIn" style={{ animationDelay: "0.2s" }}>
-          Los Angeles' premium photo digitization service. We come to you, offering in-home service OR photo pickup & drop off handling the work at our Santa Monica location.
+          Los Angeles' premium photo digitization service. We come to you, offering in-home service OR photo pickup & drop off, handling the work at our Santa Monica location.
         </p>
         <Button 
           onClick={scrollToContact}
