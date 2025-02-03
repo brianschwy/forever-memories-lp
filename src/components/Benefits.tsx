@@ -1,4 +1,4 @@
-import { Clock, Shield, Calendar, DollarSign, ArrowLeft, ArrowRight } from "lucide-react";
+import { Clock, Shield, Calendar, DollarSign } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -8,7 +8,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useRef, useState } from "react";
-import { Button } from "./ui/button";
 
 export const Benefits = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -60,19 +59,6 @@ export const Benefits = () => {
     }
   };
 
-  const scroll = (direction: 'left' | 'right') => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      const columnWidth = container.clientWidth / 2; // Approximate width of one column
-      const scrollAmount = direction === 'left' ? -columnWidth : columnWidth;
-      
-      container.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -81,30 +67,6 @@ export const Benefits = () => {
         </h2>
         
         <div className="relative">
-          {/* Scroll Arrows - Only show on mobile/tablet */}
-          <div className="md:hidden flex justify-between absolute -left-4 -right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-            <Button
-              variant="ghost"
-              size="icon"
-              className={`rounded-full bg-white shadow-lg pointer-events-auto ${!canScrollLeft ? 'opacity-50' : ''}`}
-              onClick={() => scroll('left')}
-              disabled={!canScrollLeft}
-              style={{ backgroundColor: 'white' }}
-            >
-              <ArrowLeft className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className={`rounded-full bg-white shadow-lg pointer-events-auto ${!canScrollRight ? 'opacity-50' : ''}`}
-              onClick={() => scroll('right')}
-              disabled={!canScrollRight}
-              style={{ backgroundColor: 'white' }}
-            >
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </div>
-
           {/* Table Container with Horizontal Scroll */}
           <div 
             ref={scrollContainerRef}
@@ -116,12 +78,12 @@ export const Benefits = () => {
                 <Table>
                   <TableHeader>
                     <TableRow className="hover:bg-transparent">
-                      <TableHead className="w-[100px]"></TableHead>
-                      <TableHead className="text-navy font-semibold">Do It Yourself</TableHead>
-                      <TableHead className="text-navy font-semibold border-4 border-navy bg-[#d1ecf7]">
+                      <TableHead className="w-[80px] text-center"></TableHead>
+                      <TableHead className="text-navy font-semibold text-center">Do It Yourself</TableHead>
+                      <TableHead className="text-navy font-semibold border-x-4 border-t-4 border-navy bg-[#DFF2F9] text-center">
                         Forever Photos
                       </TableHead>
-                      <TableHead className="text-navy font-semibold">Our Competitors</TableHead>
+                      <TableHead className="text-navy font-semibold text-center">Our Competitors</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -131,13 +93,13 @@ export const Benefits = () => {
                         className="transition-colors hover:bg-gray-50/50"
                       >
                         <TableCell className="font-medium">
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-col items-center gap-1">
                             <feature.icon size={24} className="text-navy" />
-                            <span className="text-sm text-gray-600">{feature.label}</span>
+                            <span className="text-xs text-gray-600">{feature.label}</span>
                           </div>
                         </TableCell>
                         <TableCell className="min-w-[200px]">{feature.diy}</TableCell>
-                        <TableCell className={`border-x-4 border-navy bg-[#d1ecf7] ${index === features.length - 1 ? 'border-b-4' : ''} ${index === 0 ? 'border-t-4' : ''}`}>
+                        <TableCell className={`border-x-4 border-navy bg-[#DFF2F9] ${index === features.length - 1 ? 'border-b-4' : ''}`}>
                           <span className="text-navy font-bold">{feature.forever}</span>
                         </TableCell>
                         <TableCell className="min-w-[200px]">{feature.competitors}</TableCell>
