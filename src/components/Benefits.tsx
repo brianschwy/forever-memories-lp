@@ -85,7 +85,7 @@ export const Benefits = () => {
                           </div>
                         </TableCell>
                         <TableCell className="min-w-[250px] text-center border-t">{feature.diy}</TableCell>
-                        <TableCell className={`border-x-4 border-navy bg-[#DFF2F9] min-w-[300px] text-center border-t ${index === features.length - 1 ? 'border-b-4' : ''}`}>
+                        <TableCell className={`border-x-4 border-navy bg-[#DFF2F9] min-w-[300px] text-center ${index === features.length - 1 ? 'border-b-4' : ''}`}>
                           <span className="text-navy font-bold">{feature.forever}</span>
                         </TableCell>
                         <TableCell className="min-w-[250px] text-center border-t">{feature.competitors}</TableCell>
