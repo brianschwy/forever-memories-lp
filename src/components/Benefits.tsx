@@ -7,12 +7,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 export const Benefits = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const features = [
     {
@@ -49,16 +47,6 @@ export const Benefits = () => {
     },
   ];
 
-  const checkScrollability = () => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      setCanScrollLeft(container.scrollLeft > 0);
-      setCanScrollRight(
-        container.scrollLeft < container.scrollWidth - container.clientWidth
-      );
-    }
-  };
-
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -70,7 +58,6 @@ export const Benefits = () => {
           <div 
             ref={scrollContainerRef}
             className="overflow-x-auto pb-4 -mx-4 px-4"
-            onScroll={checkScrollability}
           >
             <div className="inline-block min-w-full align-middle">
               <div className="rounded-lg border bg-white shadow-md">
@@ -78,11 +65,11 @@ export const Benefits = () => {
                   <TableHeader>
                     <TableRow className="hover:bg-transparent">
                       <TableHead className="w-[80px] text-center"></TableHead>
-                      <TableHead className="text-navy font-semibold text-center w-[250px]">Do It Yourself</TableHead>
-                      <TableHead className="text-navy font-semibold border-x-4 border-t-4 border-navy bg-[#DFF2F9] text-center w-[300px]">
+                      <TableHead className="text-navy font-bold text-lg text-center w-[250px]">Do It Yourself</TableHead>
+                      <TableHead className="text-navy font-bold text-lg border-x-4 border-t-4 border-navy bg-[#DFF2F9] text-center w-[300px]">
                         Forever Photos
                       </TableHead>
-                      <TableHead className="text-navy font-semibold text-center w-[250px]">Our Competitors</TableHead>
+                      <TableHead className="text-navy font-bold text-lg text-center w-[250px]">Our Competitors</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -97,11 +84,11 @@ export const Benefits = () => {
                             <span className="text-xs text-gray-600">{feature.label}</span>
                           </div>
                         </TableCell>
-                        <TableCell className="min-w-[250px] text-center">{feature.diy}</TableCell>
-                        <TableCell className={`border-x-4 border-navy bg-[#DFF2F9] min-w-[300px] text-center ${index === features.length - 1 ? 'border-b-4' : ''}`}>
+                        <TableCell className="min-w-[250px] text-center border-t">{feature.diy}</TableCell>
+                        <TableCell className={`border-x-4 border-navy bg-[#DFF2F9] min-w-[300px] text-center border-t ${index === features.length - 1 ? 'border-b-4' : ''}`}>
                           <span className="text-navy font-bold">{feature.forever}</span>
                         </TableCell>
-                        <TableCell className="min-w-[250px] text-center">{feature.competitors}</TableCell>
+                        <TableCell className="min-w-[250px] text-center border-t">{feature.competitors}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
