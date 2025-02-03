@@ -41,9 +41,9 @@ export const Benefits = () => {
       icon: DollarSign,
       label: "Cost",
       name: "Price",
-      diy: "Cost of your time plus equipment & software",
-      forever: "✓ $0.30 to $0.50 per photo",
-      competitors: "$0.30 to $0.60 per photo plus packaging & shipping",
+      diy: "Your time plus equipment & software",
+      forever: "✓ $0.30 to $0.50 / photo",
+      competitors: "$0.30 to $0.60 / photo + packaging & shipping",
     },
   ];
 
