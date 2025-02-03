@@ -13,14 +13,14 @@ export const Pricing = () => {
   const plans = [
     {
       name: "Starter Collection",
-      photos: 100,
+      photos: 500,
       pricePerPhoto: 0.50,
       description: "Perfect for small collections",
       features: commonFeatures,
     },
     {
       name: "Family Collection",
-      photos: 500,
+      photos: 1000,
       pricePerPhoto: 0.40,
       description: "Most popular",
       features: commonFeatures,
@@ -28,7 +28,7 @@ export const Pricing = () => {
     },
     {
       name: "Heritage Collection",
-      photos: "1000+",
+      photos: "1,000+",
       pricePerPhoto: 0.30,
       description: "Best value for larger collections",
       features: commonFeatures,
