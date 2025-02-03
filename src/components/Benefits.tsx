@@ -63,9 +63,11 @@ export const Benefits = () => {
   const scroll = (direction: 'left' | 'right') => {
     const container = scrollContainerRef.current;
     if (container) {
-      const scrollAmount = 200;
+      const columnWidth = container.clientWidth / 2; // Approximate width of one column
+      const scrollAmount = direction === 'left' ? -columnWidth : columnWidth;
+      
       container.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        left: scrollAmount,
         behavior: 'smooth'
       });
     }
@@ -84,18 +86,20 @@ export const Benefits = () => {
             <Button
               variant="ghost"
               size="icon"
-              className={`rounded-full bg-white shadow-md pointer-events-auto ${!canScrollLeft ? 'opacity-50' : ''}`}
+              className={`rounded-full bg-white shadow-lg pointer-events-auto ${!canScrollLeft ? 'opacity-50' : ''}`}
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
+              style={{ backgroundColor: 'white' }}
             >
               <ArrowLeft className="h-4 w-4" />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              className={`rounded-full bg-white shadow-md pointer-events-auto ${!canScrollRight ? 'opacity-50' : ''}`}
+              className={`rounded-full bg-white shadow-lg pointer-events-auto ${!canScrollRight ? 'opacity-50' : ''}`}
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
+              style={{ backgroundColor: 'white' }}
             >
               <ArrowRight className="h-4 w-4" />
             </Button>
@@ -114,7 +118,7 @@ export const Benefits = () => {
                     <TableRow className="hover:bg-transparent">
                       <TableHead className="w-[100px]"></TableHead>
                       <TableHead className="text-navy font-semibold">Do It Yourself</TableHead>
-                      <TableHead className="text-navy font-semibold border-x-4 border-t-4 border-navy">
+                      <TableHead className="text-navy font-semibold border-4 border-navy bg-[#d1ecf7]">
                         Forever Photos
                       </TableHead>
                       <TableHead className="text-navy font-semibold">Our Competitors</TableHead>
@@ -128,12 +132,12 @@ export const Benefits = () => {
                       >
                         <TableCell className="font-medium">
                           <div className="flex items-center gap-2">
-                            <feature.icon size={24} className="text-gold" />
+                            <feature.icon size={24} className="text-navy" />
                             <span className="text-sm text-gray-600">{feature.label}</span>
                           </div>
                         </TableCell>
                         <TableCell className="min-w-[200px]">{feature.diy}</TableCell>
-                        <TableCell className={`border-x-4 border-navy ${index === features.length - 1 ? 'border-b-4' : ''}`}>
+                        <TableCell className={`border-x-4 border-navy bg-[#d1ecf7] ${index === features.length - 1 ? 'border-b-4' : ''} ${index === 0 ? 'border-t-4' : ''}`}>
                           <span className="text-navy font-bold">{feature.forever}</span>
                         </TableCell>
                         <TableCell className="min-w-[200px]">{feature.competitors}</TableCell>
