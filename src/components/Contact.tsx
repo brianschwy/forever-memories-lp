@@ -11,9 +11,6 @@ export const Contact = () => {
           <p className="text-gray-600">
             Let's discuss your photo collection and create a personalized digitization plan.
           </p>
-          <p className="text-gray-600 mt-4">
-            Proudly serving the Greater Los Angeles area.
-          </p>
         </div>
 
         <ContactForm />

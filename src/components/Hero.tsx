@@ -21,7 +21,7 @@ export const Hero = () => {
           className="bg-gold hover:bg-gold-light text-white text-lg px-8 py-6 animate-fadeIn" 
           style={{ animationDelay: "0.4s" }}
         >
-          Protect Your Memories - Book Now
+          Protect Your Memories Today
         </Button>
       </div>
 
