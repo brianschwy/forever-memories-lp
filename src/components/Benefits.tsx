@@ -59,14 +59,14 @@ export const Benefits = () => {
                   <TableRow className="hover:bg-transparent">
                     <TableHead className="w-[100px]"></TableHead>
                     <TableHead className="text-navy font-semibold">Do It Yourself</TableHead>
-                    <TableHead className="text-navy font-semibold border-x-2 border-navy">
+                    <TableHead className="text-navy font-semibold border-x-4 border-t-4 border-navy">
                       Forever Photos
                     </TableHead>
                     <TableHead className="text-navy font-semibold">Our Competitors</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {features.map((feature) => (
+                  {features.map((feature, index) => (
                     <TableRow 
                       key={feature.name}
                       className="transition-colors hover:bg-gray-50/50"
@@ -77,17 +77,46 @@ export const Benefits = () => {
                           <span className="text-sm text-gray-600">{feature.label}</span>
                         </div>
                       </TableCell>
-                      <TableCell>{feature.diy}</TableCell>
-                      <TableCell className="border-x-2 border-navy">
+                      <TableCell className="min-w-[200px]">{feature.diy}</TableCell>
+                      <TableCell className={`border-x-4 border-navy ${index === features.length - 1 ? 'border-b-4' : ''}`}>
                         <span className="text-navy font-bold">{feature.forever}</span>
                       </TableCell>
-                      <TableCell>{feature.competitors}</TableCell>
+                      <TableCell className="min-w-[200px]">{feature.competitors}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             </div>
           </div>
+        </div>
+
+        {/* Mobile version - shows up on small screens */}
+        <div className="md:hidden mt-8 space-y-8">
+          {features.map((feature) => (
+            <div key={feature.name} className="bg-white rounded-lg shadow-md p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <feature.icon size={24} className="text-gold" />
+                <span className="text-sm text-gray-600">{feature.label}</span>
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-500">Do It Yourself</h4>
+                  <p className="mt-1">{feature.diy}</p>
+                </div>
+                
+                <div className="border-2 border-navy p-3 rounded-md">
+                  <h4 className="text-sm font-semibold text-navy">Forever Photos</h4>
+                  <p className="mt-1 text-navy font-bold">{feature.forever}</p>
+                </div>
+                
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-500">Our Competitors</h4>
+                  <p className="mt-1">{feature.competitors}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
