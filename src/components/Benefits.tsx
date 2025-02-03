@@ -4,8 +4,8 @@ export const Benefits = () => {
   const benefits = [
     {
       icon: Home,
-      title: "In-Home Service",
-      description: "Your photo albums and pictures never leave your home!",
+      title: "Local Service",
+      description: "Digitization handled in-home OR nearby in Santa Monica, you choose",
     },
     {
       icon: Camera,

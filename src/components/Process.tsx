@@ -9,8 +9,8 @@ export const Process = () => {
     },
     {
       icon: Home,
-      title: "We Come to You",
-      description: "Your photos never have to leave your home!",
+      title: "Choose Service Option",
+      description: "Select in-home service or pickup & return",
     },
     {
       icon: Camera,

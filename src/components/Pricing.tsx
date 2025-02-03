@@ -13,21 +13,21 @@ export const Pricing = () => {
     {
       name: "Starter Collection",
       photos: 100,
-      pricePerPhoto: 0.60,
+      pricePerPhoto: 0.50,
       description: "Perfect for small collections",
       features: commonFeatures,
     },
     {
       name: "Family Collection",
       photos: 500,
-      pricePerPhoto: 0.55,
+      pricePerPhoto: 0.40,
       description: "Most popular",
       features: commonFeatures,
     },
     {
       name: "Heritage Collection",
       photos: "1000+",
-      pricePerPhoto: 0.50,
+      pricePerPhoto: 0.30,
       description: "Best value for larger collections",
       features: commonFeatures,
     },
@@ -59,7 +59,9 @@ export const Pricing = () => {
               <div className="mb-8">
                 <span className="text-4xl font-bold text-navy">${plan.pricePerPhoto.toFixed(2)}</span>
                 <span className="text-gray-600"> per photo</span>
-                <p className="text-sm text-gray-500 mt-2">Up to {plan.photos} photos</p>
+                <p className="text-lg font-semibold text-gold mt-2 border-2 border-gold rounded-md p-2 text-center">
+                  Up to {plan.photos} photos
+                </p>
               </div>
 
               <ul className="space-y-4 mb-8">
