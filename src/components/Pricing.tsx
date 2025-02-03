@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export const Pricing = () => {
   const commonFeatures = [
@@ -23,6 +24,7 @@ export const Pricing = () => {
       pricePerPhoto: 0.40,
       description: "Most popular",
       features: commonFeatures,
+      savings: "Save 20%"
     },
     {
       name: "Heritage Collection",
@@ -30,6 +32,7 @@ export const Pricing = () => {
       pricePerPhoto: 0.30,
       description: "Best value for larger collections",
       features: commonFeatures,
+      savings: "Save 40%"
     },
   ];
 
@@ -49,8 +52,15 @@ export const Pricing = () => {
           {plans.map((plan, index) => (
             <div 
               key={index}
-              className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 relative"
             >
+              {plan.savings && (
+                <Badge 
+                  className="absolute -top-3 -right-3 bg-gold hover:bg-gold text-white px-4 py-1 text-sm font-semibold"
+                >
+                  {plan.savings}
+                </Badge>
+              )}
               <h3 className="text-2xl font-playfair font-bold text-navy mb-4">
                 {plan.name}
               </h3>
