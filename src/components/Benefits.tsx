@@ -12,6 +12,7 @@ export const Benefits = () => {
   const features = [
     {
       icon: Clock,
+      label: "Time",
       name: "Time Required",
       diy: "20+ hours of manual work",
       forever: "✓ Minimal, we handle everything",
@@ -19,6 +20,7 @@ export const Benefits = () => {
     },
     {
       icon: Shield,
+      label: "Risk",
       name: "Photo Safety",
       diy: "Safe at home",
       forever: "✓ Photos never leave your local area",
@@ -26,6 +28,7 @@ export const Benefits = () => {
     },
     {
       icon: Calendar,
+      label: "Timeline",
       name: "Timeline",
       diy: "Days or weeks of personal time",
       forever: "✓ 1-3 days, locally managed",
@@ -33,6 +36,7 @@ export const Benefits = () => {
     },
     {
       icon: DollarSign,
+      label: "Cost",
       name: "Price",
       diy: "Cost of your time plus equipment & software",
       forever: "✓ $0.30 to $0.50 per photo",
@@ -55,7 +59,7 @@ export const Benefits = () => {
                   <TableRow className="hover:bg-transparent">
                     <TableHead className="w-[100px]"></TableHead>
                     <TableHead className="text-navy font-semibold">Do It Yourself</TableHead>
-                    <TableHead className="bg-navy/5 text-navy font-semibold">
+                    <TableHead className="text-navy font-semibold border-x-2 border-navy">
                       Forever Photos
                     </TableHead>
                     <TableHead className="text-navy font-semibold">Our Competitors</TableHead>
@@ -70,11 +74,12 @@ export const Benefits = () => {
                       <TableCell className="font-medium">
                         <div className="flex items-center gap-2">
                           <feature.icon size={24} className="text-gold" />
+                          <span className="text-sm text-gray-600">{feature.label}</span>
                         </div>
                       </TableCell>
                       <TableCell>{feature.diy}</TableCell>
-                      <TableCell className="bg-navy/5">
-                        <span className="text-gold font-medium">{feature.forever}</span>
+                      <TableCell className="border-x-2 border-navy">
+                        <span className="text-navy font-bold">{feature.forever}</span>
                       </TableCell>
                       <TableCell>{feature.competitors}</TableCell>
                     </TableRow>
