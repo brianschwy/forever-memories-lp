@@ -1,4 +1,4 @@
-import { Clock, Shield, Calendar, DollarSign } from "lucide-react";
+import { Clock, Shield, Calendar, DollarSign, ArrowLeft, ArrowRight } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -7,8 +7,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useRef, useState } from "react";
+import { Button } from "./ui/button";
 
 export const Benefits = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
   const features = [
     {
       icon: Clock,
@@ -44,6 +50,27 @@ export const Benefits = () => {
     },
   ];
 
+  const checkScrollability = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      setCanScrollLeft(container.scrollLeft > 0);
+      setCanScrollRight(
+        container.scrollLeft < container.scrollWidth - container.clientWidth
+      );
+    }
+  };
+
+  const scroll = (direction: 'left' | 'right') => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const scrollAmount = 200;
+      container.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -51,72 +78,72 @@ export const Benefits = () => {
           Why customers choose Forever Photos
         </h2>
         
-        <div className="overflow-x-auto">
-          <div className="inline-block min-w-full align-middle">
-            <div className="rounded-lg border bg-white shadow-md">
-              <Table>
-                <TableHeader>
-                  <TableRow className="hover:bg-transparent">
-                    <TableHead className="w-[100px]"></TableHead>
-                    <TableHead className="text-navy font-semibold">Do It Yourself</TableHead>
-                    <TableHead className="text-navy font-semibold border-x-4 border-t-4 border-navy">
-                      Forever Photos
-                    </TableHead>
-                    <TableHead className="text-navy font-semibold">Our Competitors</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {features.map((feature, index) => (
-                    <TableRow 
-                      key={feature.name}
-                      className="transition-colors hover:bg-gray-50/50"
-                    >
-                      <TableCell className="font-medium">
-                        <div className="flex items-center gap-2">
-                          <feature.icon size={24} className="text-gold" />
-                          <span className="text-sm text-gray-600">{feature.label}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell className="min-w-[200px]">{feature.diy}</TableCell>
-                      <TableCell className={`border-x-4 border-navy ${index === features.length - 1 ? 'border-b-4' : ''}`}>
-                        <span className="text-navy font-bold">{feature.forever}</span>
-                      </TableCell>
-                      <TableCell className="min-w-[200px]">{feature.competitors}</TableCell>
+        <div className="relative">
+          {/* Scroll Arrows - Only show on mobile/tablet */}
+          <div className="md:hidden flex justify-between absolute -left-4 -right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+            <Button
+              variant="ghost"
+              size="icon"
+              className={`rounded-full bg-white shadow-md pointer-events-auto ${!canScrollLeft ? 'opacity-50' : ''}`}
+              onClick={() => scroll('left')}
+              disabled={!canScrollLeft}
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={`rounded-full bg-white shadow-md pointer-events-auto ${!canScrollRight ? 'opacity-50' : ''}`}
+              onClick={() => scroll('right')}
+              disabled={!canScrollRight}
+            >
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
+
+          {/* Table Container with Horizontal Scroll */}
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-auto pb-4 -mx-4 px-4"
+            onScroll={checkScrollability}
+          >
+            <div className="inline-block min-w-full align-middle">
+              <div className="rounded-lg border bg-white shadow-md">
+                <Table>
+                  <TableHeader>
+                    <TableRow className="hover:bg-transparent">
+                      <TableHead className="w-[100px]"></TableHead>
+                      <TableHead className="text-navy font-semibold">Do It Yourself</TableHead>
+                      <TableHead className="text-navy font-semibold border-x-4 border-t-4 border-navy">
+                        Forever Photos
+                      </TableHead>
+                      <TableHead className="text-navy font-semibold">Our Competitors</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {features.map((feature, index) => (
+                      <TableRow 
+                        key={feature.name}
+                        className="transition-colors hover:bg-gray-50/50"
+                      >
+                        <TableCell className="font-medium">
+                          <div className="flex items-center gap-2">
+                            <feature.icon size={24} className="text-gold" />
+                            <span className="text-sm text-gray-600">{feature.label}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell className="min-w-[200px]">{feature.diy}</TableCell>
+                        <TableCell className={`border-x-4 border-navy ${index === features.length - 1 ? 'border-b-4' : ''}`}>
+                          <span className="text-navy font-bold">{feature.forever}</span>
+                        </TableCell>
+                        <TableCell className="min-w-[200px]">{feature.competitors}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Mobile version - shows up on small screens */}
-        <div className="md:hidden mt-8 space-y-8">
-          {features.map((feature) => (
-            <div key={feature.name} className="bg-white rounded-lg shadow-md p-4">
-              <div className="flex items-center gap-2 mb-3">
-                <feature.icon size={24} className="text-gold" />
-                <span className="text-sm text-gray-600">{feature.label}</span>
-              </div>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-500">Do It Yourself</h4>
-                  <p className="mt-1">{feature.diy}</p>
-                </div>
-                
-                <div className="border-2 border-navy p-3 rounded-md">
-                  <h4 className="text-sm font-semibold text-navy">Forever Photos</h4>
-                  <p className="mt-1 text-navy font-bold">{feature.forever}</p>
-                </div>
-                
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-500">Our Competitors</h4>
-                  <p className="mt-1">{feature.competitors}</p>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
